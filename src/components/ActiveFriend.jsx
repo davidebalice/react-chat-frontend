@@ -16,7 +16,7 @@ const ActiveFriend = ({ user, setCurrentFriend }) => {
       <div className="image-active-icon">
         <div className="image">
           <img
-            src={`${process.env.REACT_APP_API_BASE_URL}/uploads/${user.userInfo.photo}`}
+            src={`${process.env.REACT_APP_API_BASE_URL}/api/chat/images/${user.userInfo.photo}`}
             alt=""
           />
           <div className="active-icon"></div>

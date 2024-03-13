@@ -35,7 +35,6 @@ if (getToken) {
     authState.loading = false;
   }
 }
-console.log(getToken);
 
 export const authReducer = (state = authState, action) => {
   const { payload, type } = action;

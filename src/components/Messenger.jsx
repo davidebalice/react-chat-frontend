@@ -37,6 +37,7 @@ const Messenger = () => {
     themeMood,
     new_user_add,
   } = useSelector((state) => state.messenger);
+  
   const { myInfo } = useSelector((state) => state.auth);
 
   const [currentfriend, setCurrentFriend] = useState("");
@@ -47,7 +48,7 @@ const Messenger = () => {
   const [typingMessage, setTypingMessage] = useState("");
 
   useEffect(() => {
-    socket.current = io("ws://localhost:8005");
+    socket.current = io(process.env.REACT_APP_SOCKET_URL);
     socket.current.on("getMessage", (data) => {
       setSocketMessage(data);
     });
@@ -315,7 +316,7 @@ const Messenger = () => {
               <div className="image-name">
                 <div className="image">
                   <img
-                    src={`${process.env.REACT_APP_API_BASE_URL}/uploads/${myInfo.photo}`}
+                    src={`${process.env.REACT_APP_API_BASE_URL}/api/chat/images/${myInfo.photo}`}
                     alt=""
                   />
                 </div>

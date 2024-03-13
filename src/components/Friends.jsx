@@ -12,7 +12,7 @@ const Friends = (props) => {
       <div className="friend-image">
         <div className="image">
           <img
-            src={`${process.env.REACT_APP_API_BASE_URL}/uploads/${fndInfo.photo}`}
+            src={`${process.env.REACT_APP_API_BASE_URL}/api/chat/images/${fndInfo.photo}`}
             alt=""
           />
           {activeUser &&
@@ -85,7 +85,7 @@ const Friends = (props) => {
           <div className="seen-unseen-icon">
             {msgInfo.status === "seen" ? (
               <img
-                src={`${process.env.REACT_APP_API_BASE_URL}/uploads/${fndInfo.photo}`}
+                src={`${process.env.REACT_APP_API_BASE_URL}/api/chat/images/${fndInfo.photo}`}
                 alt=""
               />
             ) : msgInfo.status === "delivared" ? (

@@ -4,7 +4,7 @@ import { Navigate } from "react-router-dom";
 
 const ProtectRoute = ({ children }) => {
   const { authenticate } = useSelector((state) => state.auth);
-  return authenticate ? children : <Navigate to="/messenger/login" />;
+  return authenticate ? children : <Navigate to="/chat/login" />;
 };
 
 export default ProtectRoute;

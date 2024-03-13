@@ -18,7 +18,8 @@ const Message = ({ message, currentfriend, scrollRef, typingMessage }) => {
                       {" "}
                       {m.message.text === "" ? (
                         <img
-                          src={`${process.env.REACT_APP_API_BASE_URL}/uploads/${m.message.photo}`}
+                          src={`${process.env.REACT_APP_API_BASE_URL}/api/chat/images/${m.message.photo}`}
+                          alt=""
                         />
                       ) : (
                         m.message.text
@@ -30,7 +31,7 @@ const Message = ({ message, currentfriend, scrollRef, typingMessage }) => {
                       m.status === "seen" ? (
                         <img
                           className="img"
-                          src={`${process.env.REACT_APP_API_BASE_URL}/uploads/${currentfriend.photo}`}
+                          src={`${process.env.REACT_APP_API_BASE_URL}/api/chat/images/${currentfriend.photo}`}
                           alt=""
                         />
                       ) : m.status === "delivared" ? (
@@ -57,7 +58,7 @@ const Message = ({ message, currentfriend, scrollRef, typingMessage }) => {
               <div ref={scrollRef} className="fd-message">
                 <div className="image-message-time">
                   <img
-                    src={`${process.env.REACT_APP_API_BASE_URL}/uploads/${currentfriend.photo}`}
+                    src={`${process.env.REACT_APP_API_BASE_URL}/api/chat/images/${currentfriend.photo}`}
                     alt=""
                   />
                   <div className="message-time">
@@ -66,7 +67,7 @@ const Message = ({ message, currentfriend, scrollRef, typingMessage }) => {
                         {" "}
                         {m.message.text === "" ? (
                           <img
-                            src={`${process.env.REACT_APP_API_BASE_URL}/uploads/${m.message.photo}`}
+                            src={`${process.env.REACT_APP_API_BASE_URL}/api/chat/images/${m.message.photo}`}
                           />
                         ) : (
                           m.message.text
@@ -84,7 +85,7 @@ const Message = ({ message, currentfriend, scrollRef, typingMessage }) => {
         ) : (
           <div className="friend_connect">
             <img
-              src={`${process.env.REACT_APP_API_BASE_URL}/uploads/${currentfriend.photo}`}
+              src={`${process.env.REACT_APP_API_BASE_URL}/api/chat/images/${currentfriend.photo}`}
               alt=""
             />
             <h3>{currentfriend.userName} Connect You </h3>
@@ -102,7 +103,7 @@ const Message = ({ message, currentfriend, scrollRef, typingMessage }) => {
           <div className="fd-message">
             <div className="image-message-time">
               <img
-                src={`${process.env.REACT_APP_API_BASE_URL}/uploads/${currentfriend.photo}`}
+                src={`${process.env.REACT_APP_API_BASE_URL}/api/chat/images/${currentfriend.photo}`}
                 alt=""
               />
               <div className="message-time">

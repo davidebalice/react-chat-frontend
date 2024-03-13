@@ -15,7 +15,7 @@ export const userRegister = (data) => {
     };
     try {
       const response = await axios.post(
-        "/api/messenger/user-register",
+        "/api/chat/user-register",
         data,
         config
       );
@@ -49,7 +49,7 @@ export const userLogin = (data) => {
 
     try {
       const response = await axios.post(
-        "/api/messenger/user-login",
+        "/api/chat/user-login",
         data,
         config
       );
@@ -74,7 +74,7 @@ export const userLogin = (data) => {
 
 export const userLogout = () => async (dispatch) => {
   try {
-    const response = await axios.post("/api/messenger/user-logout");
+    const response = await axios.post("/api/chat/user-logout");
     if (response.data.success) {
       localStorage.removeItem("authToken");
       dispatch({
