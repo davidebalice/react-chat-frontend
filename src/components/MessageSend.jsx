@@ -15,19 +15,15 @@ const MessageSend = ({
 }) => {
   const emojis = [
     "😀",
-    "",
     "😄",
     "😁",
     "😆",
-    "",
     "😂",
     "🤣",
     "😊",
-    "",
     "🙂",
     "🙃",
     "😉",
-    "",
     "😍",
     "😝",
     "😜",
@@ -40,13 +36,16 @@ const MessageSend = ({
     "😱",
   ];
 
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      sendMessage(e);
+    }
+  };
+
   return (
     <div className="message-send-section">
       <input type="checkbox" id="emoji" />
-      <div className="file hover-attachment">
-        <div className="add-attachment">Add Attachment</div>
-        <FaPlusCircle />
-      </div>
 
       <div className="file hover-image">
         <div className="add-image">Add Image</div>
@@ -57,29 +56,23 @@ const MessageSend = ({
           className="form-control"
         />
         <label htmlFor="pic">
-          {" "}
-          <FaFileImage />{" "}
+          <FaFileImage />
         </label>
-      </div>
-
-      <div className="file hover-gift">
-        <div className="add-gift">Add gift</div>
-        <FaGift />
       </div>
 
       <div className="message-type">
         <input
           type="text"
           onChange={inputHendle}
+          onKeyPress={handleKeyPress}
           name="message"
           id="message"
           placeholder="Aa"
           className="form-control"
           value={newMessage}
         />
-
         <div className="file hover-gift">
-          <label htmlFor="emoji"> ❤️ </label>
+          <label htmlFor="emoji"> 😄 </label>
         </div>
       </div>
 

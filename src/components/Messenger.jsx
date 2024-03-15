@@ -37,7 +37,7 @@ const Messenger = () => {
     themeMood,
     new_user_add,
   } = useSelector((state) => state.messenger);
-  
+
   const { myInfo } = useSelector((state) => state.auth);
 
   const [currentfriend, setCurrentFriend] = useState("");
@@ -161,21 +161,23 @@ const Messenger = () => {
 
   const sendMessage = (e) => {
     e.preventDefault();
-    sendingSPlay();
-    const data = {
-      senderName: myInfo.userName,
-      reseverId: currentfriend._id,
-      message: newMessage ? newMessage : "❤",
-    };
+    if (newMessage !== "") {
+      sendingSPlay();
+      const data = {
+        senderName: myInfo.userName,
+        reseverId: currentfriend._id,
+        message: newMessage ? newMessage : " ",
+      };
 
-    socket.current.emit("typingMessage", {
-      senderId: myInfo.id,
-      reseverId: currentfriend._id,
-      msg: "",
-    });
+      socket.current.emit("typingMessage", {
+        senderId: myInfo.id,
+        reseverId: currentfriend._id,
+        msg: "",
+      });
 
-    dispatch(messageSend(data));
-    setNewMessage("");
+      dispatch(messageSend(data));
+      setNewMessage("");
+    }
   };
 
   useEffect(() => {
@@ -310,7 +312,7 @@ const Messenger = () => {
       />
 
       <div className="row">
-        <div className="col-3">
+        <div className="col-3 column1">
           <div className="left-side">
             <div className="top">
               <div className="image-name">

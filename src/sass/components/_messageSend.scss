@@ -3,7 +3,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px;
+  background-color: #dfdfdf;
+  padding: 10px;
   .file {
     display: flex;
     padding: 8px;
@@ -58,9 +59,9 @@
   }
   .message-type {
     display: flex;
-    width: 70%;
+    width: 90%;
     height: 40px;
-    background-color: #dfdfdf;
+    background-color: #ffffff;
     border-radius: 50px;
     border: none;
     align-items: center;

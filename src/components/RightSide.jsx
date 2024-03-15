@@ -19,11 +19,11 @@ const RightSide = (props) => {
   } = props;
 
   return (
-    <div className="col-9">
+    <div className="col-9 column0">
       <div className="right-side">
         <input type="checkbox" id="dot" />
         <div className="row">
-          <div className="col-8">
+          <div className="col-8 column2">
             <div className="message-send-show">
               <div className="header">
                 <div className="image-name">
@@ -45,23 +45,6 @@ const RightSide = (props) => {
                     <h3>{currentfriend.userName}</h3>
                   </div>
                 </div>
-
-                <div className="icons">
-                  <div className="icon">
-                    <FaPhoneAlt />
-                  </div>
-
-                  <div className="icon">
-                    <FaVideo />
-                  </div>
-
-                  <div className="icon">
-                    <label htmlFor="dot">
-                      {" "}
-                      <FaRocketchat />{" "}
-                    </label>
-                  </div>
-                </div>
               </div>
 
               <Message
@@ -81,7 +64,7 @@ const RightSide = (props) => {
             </div>
           </div>
 
-          <div className="col-4">
+          <div className="col-2 column3">
             <FriendInfo
               message={message}
               currentfriend={currentfriend}
