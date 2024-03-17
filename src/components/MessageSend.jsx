@@ -1,8 +1,6 @@
 import React from "react";
 import {
-  FaPlusCircle,
   FaFileImage,
-  FaGift,
   FaPaperPlane,
 } from "react-icons/fa";
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { FaEllipsisH, FaEdit, FaSistrix, FaSignOutAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import ActiveFriend from "./ActiveFriend";
 import Friends from "./Friends";
 import RightSide from "./RightSide";
@@ -36,6 +37,7 @@ const Messenger = () => {
     message_get_success,
     themeMood,
     new_user_add,
+    page,
   } = useSelector((state) => state.messenger);
 
   const { myInfo } = useSelector((state) => state.auth);
@@ -196,6 +198,7 @@ const Messenger = () => {
   }, [mesageSendSuccess]);
 
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getFriends());
     dispatch({ type: "NEW_USER_ADD_CLEAR" });
@@ -312,7 +315,7 @@ const Messenger = () => {
       />
 
       <div className="row">
-        <div className="col-3 column1">
+        <div className={`col-3 column1 ${page ? "hiddenOnMobile" : ""}`}>
           <div className="left-side">
             <div className="top">
               <div className="image-name">
@@ -332,7 +335,9 @@ const Messenger = () => {
                   <FaEllipsisH />
                 </div>
                 <div className="icon">
-                  <FaEdit />
+                  <Link to="/chat/edit">
+                    <FaEdit style={{ color: "#333" }} />
+                  </Link>
                 </div>
 
                 <div className={hide ? "theme_logout" : "theme_logout show"}>
@@ -396,7 +401,13 @@ const Messenger = () => {
               {friends && friends.length > 0
                 ? friends.map((fd) => (
                     <div
-                      onClick={() => setCurrentFriend(fd.fndInfo)}
+                      onClick={() => {
+                        setCurrentFriend(fd.fndInfo);
+                        dispatch({
+                          type: "PAGE_CHAT",
+                          payload: true,
+                        });
+                      }}
                       className={
                         currentfriend._id === fd.fndInfo._id
                           ? "hover-friend active"

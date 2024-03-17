@@ -17,14 +17,15 @@
             align-items: center;
             justify-content: space-between;
             padding: 12px 10px;
+            position: relative;
             border-bottom: 1px solid var(--border-color);
             .image-name {
               display: flex;
+              align-items: center;
               .image {
                 position: relative;
                 width: 40px;
                 height: 40px;
-
                 img {
                   width: 40px;
                   height: 40px;

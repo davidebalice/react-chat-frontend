@@ -18,7 +18,7 @@ const Message = ({ message, currentfriend, scrollRef, typingMessage }) => {
                       {" "}
                       {m.message.text === "" ? (
                         <img
-                          src={`${process.env.REACT_APP_API_BASE_URL}/api/chat/images/${m.message.photo}`}
+                          src={`${process.env.REACT_APP_API_BASE_URL}/api/chat/photo/${m.message.image}`}
                           alt=""
                         />
                       ) : (

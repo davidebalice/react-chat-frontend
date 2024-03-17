@@ -124,6 +124,17 @@
     }
   }
 }
+.backButton {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding-right: 8px;
+  flex-direction: column;
+  height: 100%;
+  display: none;
+  color:#555;
+  font-size: 28px;
+}
 .column0 {
   width: 85% !important;
 }
@@ -142,13 +153,19 @@
   .column0 {
     width: 100% !important;
   }
+  .column1 {
+    width: 100% !important;
+  }
   .column2 {
     width: 100% !important;
   }
-  .column1 {
-    display: none;
-  }
   .column3 {
     display: none;
+  }
+  .hiddenOnMobile {
+    display: none;
+  }
+  .backButton {
+    display: block;
   }
 }

@@ -3,6 +3,7 @@ import Login from "./components/Login";
 import Messenger from "./components/Messenger";
 import ProtectRoute from "./components/ProtectRoute";
 import Register from "./components/Register";
+import Edit from "./components/Edit";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route path="/chat/login" element={<Login />} />
           <Route path="/chat/register" element={<Register />} />
+          <Route path="/chat/edit" element={<Edit />} />
           <Route
             path="/"
             element={

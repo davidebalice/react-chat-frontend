@@ -10,6 +10,8 @@ import {
   UPDATE,
   MESSAGE_GET_SUCCESS_CLEAR,
   SEEN_ALL,
+  PAGE_FRIENDS,
+  PAGE_CHAT,
 } from "../types/messengerType";
 
 const messengerState = {
@@ -19,6 +21,7 @@ const messengerState = {
   message_get_success: false,
   themeMood: "",
   new_user_add: "",
+  page: false,
 };
 
 export const messengerReducer = (state = messengerState, action) => {
@@ -151,6 +154,20 @@ export const messengerReducer = (state = messengerState, action) => {
     return {
       ...state,
       new_user_add: "",
+    };
+  }
+
+  if (type === "PAGE_FRIENDS") {
+    return {
+      ...state,
+      page: false,
+    };
+  }
+
+  if (type === "PAGE_CHAT") {
+    return {
+      ...state,
+      page: true,
     };
   }
 
