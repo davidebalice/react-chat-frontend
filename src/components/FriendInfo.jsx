@@ -1,7 +1,6 @@
 import React from "react";
 
 const FriendInfo = ({ currentfriend, activeUser, message }) => {
-  
   return (
     <div className="friend-info">
       <input type="checkbox" id="gallery" />
@@ -18,8 +17,9 @@ const FriendInfo = ({ currentfriend, activeUser, message }) => {
         )}
 
         <div className="name">
+          <br />
           <h4>
-            {currentfriend.name} {currentfriend.surname}{" "}{currentfriend.userName}
+            {currentfriend.name} {currentfriend.surname}
           </h4>
         </div>
       </div>

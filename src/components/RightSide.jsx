@@ -1,9 +1,9 @@
 import React from "react";
+import { IoCaretBack } from "react-icons/io5";
+import { useDispatch, useSelector } from "react-redux";
 import FriendInfo from "./FriendInfo";
 import Message from "./Message";
 import MessageSend from "./MessageSend";
-import { useDispatch, useSelector } from "react-redux";
-import { IoCaretBack } from "react-icons/io5";
 
 const RightSide = (props) => {
   const dispatch = useDispatch();

@@ -163,7 +163,7 @@ const Register = () => {
 
             <div className="form-group">
               <span>
-                <Link to="/messenger/login"> Login Your Account </Link>
+                <Link to="/chat/login"> Login Your Account </Link>
               </span>
             </div>
           </form>

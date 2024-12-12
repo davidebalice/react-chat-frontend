@@ -1,21 +1,21 @@
-import React, { useEffect, useState, useRef } from "react";
-import { FaEllipsisH, FaEdit, FaSistrix, FaSignOutAlt } from "react-icons/fa";
+import React, { useEffect, useRef, useState } from "react";
+import { FaEdit, FaSignOutAlt, FaSistrix } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { userLogout } from "../store/actions/authAction";
+import {
+  getFriends,
+  getMessage,
+  getTheme,
+  ImageMessageSend,
+  messageSend,
+  seenMessage,
+  themeSet,
+  updateMessage,
+} from "../store/actions/messengerAction";
 import ActiveFriend from "./ActiveFriend";
 import Friends from "./Friends";
 import RightSide from "./RightSide";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  getFriends,
-  messageSend,
-  getMessage,
-  ImageMessageSend,
-  seenMessage,
-  updateMessage,
-  getTheme,
-  themeSet,
-} from "../store/actions/messengerAction";
-import { userLogout } from "../store/actions/authAction";
 
 import toast, { Toaster } from "react-hot-toast";
 import { io } from "socket.io-client";
@@ -23,7 +23,7 @@ import useSound from "use-sound";
 import notificationSound from "../audio/notification.mp3";
 import sendingSound from "../audio/sending.mp3";
 
-const Messenger = () => {
+const Chat = () => {
   const [notificationSPlay] = useSound(notificationSound);
   const [sendingSPlay] = useSound(sendingSound);
 
@@ -332,40 +332,8 @@ const Messenger = () => {
 
               <div className="icons">
                 <div onClick={() => setHide(!hide)} className="icon">
-                  <FaEllipsisH />
-                </div>
-                <div className="icon">
-                  <Link to="/chat/edit">
-                    <FaEdit style={{ color: "#333" }} />
-                  </Link>
-                </div>
-
-                <div className={hide ? "theme_logout" : "theme_logout show"}>
-                  <h3>Dark Mode </h3>
-                  <div className="on">
-                    <label htmlFor="dark">ON</label>
-                    <input
-                      onChange={(e) => dispatch(themeSet(e.target.value))}
-                      type="radio"
-                      value="dark"
-                      name="theme"
-                      id="dark"
-                    />
-                  </div>
-
-                  <div className="of">
-                    <label htmlFor="white">OFF</label>
-                    <input
-                      onChange={(e) => dispatch(themeSet(e.target.value))}
-                      type="radio"
-                      value="white"
-                      name="theme"
-                      id="white"
-                    />
-                  </div>
-
                   <div onClick={logout} className="logout">
-                    <FaSignOutAlt /> Logout
+                    <FaSignOutAlt />
                   </div>
                 </div>
               </div>
@@ -374,7 +342,6 @@ const Messenger = () => {
             <div className="friend-search">
               <div className="search">
                 <button>
-                  {" "}
                   <FaSistrix />{" "}
                 </button>
                 <input
@@ -440,11 +407,11 @@ const Messenger = () => {
             typingMessage={typingMessage}
           />
         ) : (
-          "Please Select your Friend"
+          "Please select your Friend"
         )}
       </div>
     </div>
   );
 };
 
-export default Messenger;
+export default Chat;

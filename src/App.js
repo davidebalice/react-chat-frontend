@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/Login";
-import Messenger from "./components/Messenger";
+import Chat from "./components/Chat";
 import ProtectRoute from "./components/ProtectRoute";
 import Register from "./components/Register";
 import Edit from "./components/Edit";
@@ -17,7 +17,7 @@ function App() {
             path="/"
             element={
               <ProtectRoute>
-                <Messenger />
+                <Chat />
               </ProtectRoute>
             }
           />

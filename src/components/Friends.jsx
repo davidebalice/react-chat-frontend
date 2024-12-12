@@ -40,39 +40,6 @@ const Friends = (props) => {
           </h4>
 
           <div className="msg-time">
-            {msgInfo && msgInfo.senderId === myId ? (
-              <span>You </span>
-            ) : (
-              <span
-                className={
-                  msgInfo?.senderId !== myId &&
-                  msgInfo?.status !== undefined &&
-                  msgInfo.status !== "seen"
-                    ? "unseen_message "
-                    : ""
-                }
-              >
-                {" "}
-                {fndInfo.userName + " "}{" "}
-              </span>
-            )}
-            {msgInfo && msgInfo.message.text ? (
-              <span
-                className={
-                  msgInfo?.senderId !== myId &&
-                  msgInfo?.status !== undefined &&
-                  msgInfo.status !== "seen"
-                    ? "unseen_message "
-                    : ""
-                }
-              >
-                {msgInfo.message.text.slice(0, 10)}
-              </span>
-            ) : msgInfo && msgInfo.message.photo ? (
-              <span>Send A image </span>
-            ) : (
-              <span>Connect You </span>
-            )}
             <span>
               {msgInfo
                 ? moment(msgInfo.createdAt).startOf("mini").fromNow()
